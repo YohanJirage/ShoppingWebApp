@@ -26,7 +26,7 @@ public class Fotter extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().print("<div style='text-align:center'><p>contact - 9049040007  gmail- ShoppingWebApp@gmail.com</p>"
+		response.getWriter().print("<hr/><br/><div style='text-align:center'><p>contact - 9049040007  gmail- ShoppingWebApp@gmail.com</p>"
 				+"<p>This is My Shopping App</p>"
 				+"</div>");
 		

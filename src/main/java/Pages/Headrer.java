@@ -1,6 +1,7 @@
 package Pages;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,10 +39,17 @@ public class Headrer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
 		 
-			  response.getWriter().print("<h1 style='text-align:center'>Welcome "+getServletContext().getAttribute("username")+"</h1>");
+			  response.getWriter().print("<h1 style='text-align: center; font-size: xx-large;'>Welcome "+getServletContext().getAttribute("username"));;
 				
-		 
+			  
+			  out.print("<form action='logout' method='get'>");
+			  out.print("<input class='btn-danger' type='submit' style='float:right' value='LogOut'/>");
+				out.print("</form>");
+				
+				out.print("</h1><br/><br/><hr/>");
+			  
 	}
 
 }

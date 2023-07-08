@@ -55,12 +55,12 @@ public class UserHome extends HttpServlet {
 		{
 			st = con.createStatement();
 			rs = st.executeQuery("select * from category");
-			out.print("<hr/><div>");
+			 
 			while(rs.next())
 			{
 				out.print("<a href = getProducts?c_id="+rs.getInt(1)+" > "+rs.getString(2)+"</a><br/>");
 			}
-			out.print("</div><hr/>");
+			
 		} 
 		catch (SQLException e) {
 			

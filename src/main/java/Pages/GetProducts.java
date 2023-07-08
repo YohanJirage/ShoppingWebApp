@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,21 +43,38 @@ public class GetProducts extends HttpServlet {
 		ResultSet rs;
 		int c_id = Integer.parseInt(request.getParameter("c_id"));
 		
+		RequestDispatcher rd = request.getRequestDispatcher("/header");
+		rd.include(request, response);
+		
 		try
 		{
 			ps = con.prepareStatement("select * from product where cat_id=?");
 			ps.setInt(1, c_id);
 			rs = ps.executeQuery( );
+			out.print("<form action='addToCart' method='get'>");
 			
+			out.print("<select name='products'>");
 			while(rs.next())
 			{
-				out.print(" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4));	
+				out.print("<option value='"+rs.getString(1)+"'> "+rs.getString(2)+" : "+rs.getString(4)+"</option>");	
 			}
+			out.print("</select>");
+			out.print("<input type='submit' value='Add To Cart'>");
+			
+			out.print("</form>");
+			out.print("<form action='ViewCart.jsp' method='get'>");
+			out.print("<input type='submit' value='View Cart'>");
+			out.print("</form>");
+			
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated c[atch block
-			e.printStackTrace();
+			response.sendRedirect("Error.jsp");
 		}
+		
+		RequestDispatcher rd1 = request.getRequestDispatcher("/fotter");
+		rd1.include(request, response);
 		
 	}
 

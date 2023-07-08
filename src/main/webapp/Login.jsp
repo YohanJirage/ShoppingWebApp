@@ -5,10 +5,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<%
+	
+
+%>
+${cookie.msg.value}
 <form action="http://localhost:8080/ShoppingWebApp/logincheck" method="post">
-	<table>
+	<table >
 		
 			<tr>
 				<td>
@@ -28,11 +42,12 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" style="float:left;" value="LOGIN"/>
+					<input type="submit" class="btn-success" style="float:left;" value="LOGIN"/>
 				</td>
 				<td>
-					<input type="reset" style="float:right;" name="RESET" />
+					<input type="reset" class="btn-primary" name="RESET" />
 				</td>
+				 
 			</tr>		
 		</table>
 	</form>
